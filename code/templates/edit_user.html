@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Set Username</title>
+  
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Edit Your Profile</h1>
+    {% if user_data %}
+        <form action="/submit_user_changes" method="post">
+            Name: <input type="text" name="name" value="{{ user_data['name'] }}" required></br>
+            Profile: <input type="text" name="profile" maxlength="280" style="width: 50%; height: 30px;" value="{{ user_data['profile'] }}"></br>
+            <input type="hidden" name="user" value="{{ user_data['email'] }}"/>
+            <input type="submit" name="button" value="Edit"/>
+        </form>
+    {% endif %}
+</body>
+</html>

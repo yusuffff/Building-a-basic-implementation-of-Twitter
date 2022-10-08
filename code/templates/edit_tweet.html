@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <title>Edit Tweet</title>
+  
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Tweet</h1>
+        <form action="/tweet/edit/submit" method="post">
+            <dl>
+                <dt>Tweet:</dt><dd><input type="text" name="tweet" max="280" style="width: 50%; height: 30px;" value="{{ tweet['text'] }}" required /></dd>
+            </dl>
+            <input type="hidden" name="user" value="{{ user_data['email'] }}"/>
+            <input type="hidden" name="tweet_id" value="{{ tweet.key.id }}"/>
+            <input type="submit" name="button" value="Edit"/>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+  <title>Set Username</title>
+  
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Set Up Your Username</h1>
+
+    <form action="/set_up_user" method="post">
+        <input type="text" name="username"/><br/><input type="submit" name="button" value="SetUp"/>
+        <input type="hidden" name="user" value="{{ user_data['email'] }}"/>
+    </form>
+</body>
+</html>
